@@ -62,4 +62,28 @@ var Person = /** @class */ (function () {
 }());
 ;
 var rollNumber = new Person('Muhammed', "Ashique");
-console.log(rollNumber.getFullName());
+// console.log(rollNumber.getFullName());
+var A = /** @class */ (function () {
+    function A(age) {
+        this.age = age;
+    }
+    Object.defineProperty(A.prototype, "_age", {
+        get: function () {
+            return this.age;
+        },
+        set: function (theAge) {
+            if (theAge > 200 || theAge <= 0) {
+                throw new Error("Age is Invalid");
+            }
+            this.age = theAge;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    ;
+    return A;
+}());
+var person1 = new A(10);
+console.log(person1._age);
+person1._age = 12;
+console.log(person1._age);

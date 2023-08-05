@@ -99,9 +99,42 @@ class Person {
     } 
 };
 
-const rollNumber = new Person('Muhammed',"Ashique")
+const rollNumber = new Person('Muhammed',"Ashique");
+
 
 // console.log(rollNumber.getFullName());
+
+
+///Getter and setter for private properties
+
+class A {
+    private age: number ;
+
+    constructor(age:number){
+        this.age = age;
+    }
+
+    public get _age() {
+        return this.age;
+    };
+
+    public set _age(theAge:number){
+        if(theAge > 200 || theAge<=0){
+            throw new Error("Age is Invalid");
+        }
+        this.age = theAge;
+    }
+}
+
+const person1 = new A(10);
+
+console.log(person1._age);
+
+person1._age = 12;
+
+console.log(person1._age);
+
+
 
 
 export {};
